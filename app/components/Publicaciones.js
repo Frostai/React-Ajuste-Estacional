@@ -11,11 +11,11 @@ export default class VentasDetal extends React.Component {
     }
 
     componentDidMount() {
-        fetch('https://indicadores.pr/api/action/datastore_search?resource_id=55b6a38d-afb7-4801-9960-28d3b01c39dd&limit=500&sort=_id asc&fields=year,Patentes_PR')
+        fetch('https://datos.estadisticas.pr/api/action/datastore_search?resource_id=1ac0b44d-ae18-4677-b4f9-3e1fef74a2d8&sort=_id desc&limit=500')
             .then(result => {
                 return result.json();
             }).then(data => {
-                console.log(data.result.records);
+                //console.log(data.result.records);
                 this.setState({ data: data.result.records });
             })
     }
@@ -26,12 +26,12 @@ export default class VentasDetal extends React.Component {
                 data={this.state.data}
                 width={600} height={400}
                 margin={{ top: 5, right: 30, left: -20, bottom: 5 }} >
-                <XAxis dataKey="year" type="category" padding={{ left: 5, right: 0 }}
+                <XAxis dataKey="Year" type="category" padding={{ left: 5, right: 0 }}
                     domain={['auto', 'auto']}
                     interval={'preserveEnd'} />}
                 />
                 <YAxis type="number"
-                    label={{ value: "Patentes", position: "insideTopLeft", dx: 60, dy: 10 }}
+                    label={{ value: "Publicaciones", position: "insideTopLeft", dx: 60, dy: 10 }}
                 />
 
                 <CartesianGrid strokeDasharray="3 3" />
@@ -39,7 +39,7 @@ export default class VentasDetal extends React.Component {
                 <Tooltip
                     formatter={(value) => value.toLocaleString()}
                 />
-                <Line type="linear" name="Desestacionalizado" dataKey="Patentes_PR" stroke="#340d9f" strokeWidth={2} />
+                <Line type="linear" name="Publicaciones" dataKey="Publicaciones" stroke="#340d9f" strokeWidth={2} />
             </LineChart>
 
         )

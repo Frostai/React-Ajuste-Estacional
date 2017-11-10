@@ -18,7 +18,7 @@ export default class VentasDetal extends React.Component {
             .then(result => {
                 return result.json();
             }).then(data => {
-                console.log(data.result.records);
+                //console.log(data.result.records);
                 this.setState({ data: data.result.records });
             })
     }
@@ -30,8 +30,8 @@ export default class VentasDetal extends React.Component {
             <LineChart
                 data={this.state.data}
                 width={600} height={400}
-                margin={{ top: 5, right: 30, left: 35, bottom: 5 }} >
-                <XAxis dataKey="Date" type="category" padding={{ left: 10, right: 10 }}
+                margin={{ top: 5, right: 30, left: 5, bottom: 5 }} >
+                <XAxis dataKey="Date" type="category" padding={{ left: 10, right: 0 }}
                     domain={['2005-01-01', 'dataMax']}
                     interval={11}
                     tick={<CustomDate dy={10} _y={10} textAnchor={"middle"} />}

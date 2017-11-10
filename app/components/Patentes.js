@@ -15,7 +15,7 @@ export default class VentasDetal extends React.Component {
             .then(result => {
                 return result.json();
             }).then(data => {
-                console.log(data.result.records);
+                //console.log(data.result.records);
                 this.setState({ data: data.result.records });
             })
     }
@@ -39,7 +39,7 @@ export default class VentasDetal extends React.Component {
                 <Tooltip
                     formatter={(value) => value.toLocaleString()}
                 />
-                <Line type="linear" name="Desestacionalizado" dataKey="Patentes_PR" stroke="#340d9f" strokeWidth={2} />
+                <Line type="linear" name="Patentes" dataKey="Patentes_PR" stroke="#340d9f" strokeWidth={2} />
             </LineChart>
 
         )

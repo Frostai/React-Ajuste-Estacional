@@ -9,8 +9,12 @@ var HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
 
 module.exports = {
     entry: {
-        app: __dirname + '/app/index.js',
-        vendor: ['react', 'react-dom']
+        patentes: __dirname + '/app/patentes.index.js',
+        publicaciones: __dirname + '/app/publicaciones.index.js',
+        ventas_detal: __dirname + '/app/ventas_detal.index.js',
+        empleo_desempleo: __dirname + '/app/empleo_desempleo.index.js',
+        empleo_asalariado: __dirname + '/app/empleo_asalariado.index.js',
+        vendor: ['react','react-dom','recharts']
     },
     module: {
         loaders: [
@@ -21,12 +25,12 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [ 'style-loader', 'css-loader' ]
+                use: ['style-loader', 'css-loader']
             }
         ]
     },
     output: {
-        filename: 'transformed.js',
+        filename: '[name].js',
         path: __dirname + '/build'
     },
     plugins: [
@@ -49,7 +53,8 @@ module.exports = {
                 dead_code: true,
                 evaluate: true,
                 if_return: true,
-                join_vars: true
+                join_vars: true,
+                drop_console: true
             },
             output: {
                 comments: false

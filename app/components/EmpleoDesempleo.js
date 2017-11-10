@@ -18,7 +18,7 @@ export default class EmpleoDesempleo extends React.Component {
             .then(result => {
                 return result.json();
             }).then(data => {
-                console.log(data.result.records);
+                //console.log(data.result.records);
                 this.setState({ data: data.result.records });
             })
     }
